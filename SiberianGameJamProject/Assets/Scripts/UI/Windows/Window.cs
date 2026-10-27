@@ -7,12 +7,12 @@ public abstract class Window : MonoBehaviour
 
     [SerializeField] private CanvasGroup _windowGroup;
 
-    protected void Open()
+    public void Open()
     {
         SetWindowState(VisibleAlpha, true);
     }
 
-    protected void Close()
+    public void Close()
     {
         SetWindowState(HiddenAlpha, false);
     }

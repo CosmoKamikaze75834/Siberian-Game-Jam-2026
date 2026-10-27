@@ -690,6 +690,7 @@ GameObject:
   m_Component:
   - component: {fileID: 698674335}
   - component: {fileID: 698674336}
+  - component: {fileID: 698674337}
   m_Layer: 5
   m_Name: MainMenuWindow
   m_TagString: Untagged
@@ -730,10 +731,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 383e2e1cba4392c43b1d844ec4ba2223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _windowGroup: {fileID: 698674337}
   _buttonNewGame: {fileID: 2061709068}
   _buttonContinue: {fileID: 1754964443}
   _buttonSettings: {fileID: 877890207}
   _buttonExit: {fileID: 1572321074}
+--- !u!225 &698674337
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698674334}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &733096602
 GameObject:
   m_ObjectHideFlags: 0
@@ -3461,7 +3475,7 @@ MonoBehaviour:
   _musicVolumeSlider: {fileID: 870863562}
   _sfxVolumeSlider: {fileID: 400442290}
   _masterVolumeSlider: {fileID: 1504744238}
-  _testSFXClip: {fileID: 8300000, guid: 7734d68b94fb5134389be79c18c0f65e, type: 3}
+  _buttonBack: {fileID: 868427074}
 --- !u!1 &1900161647
 GameObject:
   m_ObjectHideFlags: 0
@@ -3957,6 +3971,7 @@ GameObject:
   - component: {fileID: 2135262686}
   - component: {fileID: 2135262685}
   - component: {fileID: 2135262684}
+  - component: {fileID: 2135262688}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4048,6 +4063,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2135262688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135262683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39094dac4d832404ca3db159cd435a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _menu: {fileID: 698674336}
+  _settings: {fileID: 1880445610}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
