@@ -7,5 +7,7 @@ public class MainMenuInstaller : MonoInstaller
         Container.Bind<SceneLoader>().FromComponentInHierarchy().AsSingle();
         Container.Bind<AudioVolume>().FromComponentInHierarchy().AsSingle();
         Container.Bind<AudioPlayer>().FromComponentInHierarchy().AsSingle();
+
+        Container.Bind<AudioSettingsStorage>().AsSingle();
     }
 }
