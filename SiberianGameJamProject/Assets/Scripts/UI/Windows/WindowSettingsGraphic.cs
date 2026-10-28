@@ -23,10 +23,10 @@ public class WindowSettingsGraphic : MonoBehaviour
         foreach (Resolution res in AllResolutions)
         {
             newRes = res.width.ToString() + "x" + res.height.ToString();
-            if (!resolutionStringList.Contains(newREs))
+            if (!resolutionStringList.Contains(newRes))
             {
                 resolutionStringList.Add(newRes);
-                resolutionStringList.Add(res.ToString);
+                SelectedResolutionList.Add(res);
                     }
         }
         _graphicDropDown.AddOptions(resolutionStringList);
