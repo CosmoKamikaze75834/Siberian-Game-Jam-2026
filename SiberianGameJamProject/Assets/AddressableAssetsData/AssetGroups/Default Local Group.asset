@@ -16,7 +16,12 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: ab008f1e88513c14d9361f4368a246b0
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 899c4d90706b8ec4cb8183af8773d423
+    m_Address: Assets/Scripts/Mechanics/632c951c2aba49f7b73e7bcff8dcebe4.ico
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f9f30144de8bacf4e955fd306f603675, type: 2}
   m_SchemaSet:
