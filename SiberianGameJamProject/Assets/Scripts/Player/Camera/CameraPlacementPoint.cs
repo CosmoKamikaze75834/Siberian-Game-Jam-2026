@@ -14,6 +14,11 @@ public class CameraPlacementPoint : MonoBehaviour
         _mainCamera = Camera.main;
     }
 
+    private void Start()
+    {
+        Debug.Log($"Camera: {_mainCamera}, Controls: {_controls}, Parent: {transform.parent}");
+    }
+
     private void Update()
     {
         Vector2 mousePosition = _mainCamera.ScreenToWorldPoint(_controls.PointerPosition);

@@ -21,6 +21,9 @@ public class PlayerInteraction : MonoBehaviour
 
     private void OnInteractPressed()
     {
+        if(_cameraPlacement == null)
+            return;
+
         IInteractable interactable = _interactionDetector.CurrentInteractable;
 
         if (interactable != null)
