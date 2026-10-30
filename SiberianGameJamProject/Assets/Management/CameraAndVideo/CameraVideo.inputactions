@@ -1,0 +1,55 @@
+{
+    "version": 1,
+    "name": "CameraVideo",
+    "maps": [
+        {
+            "name": "Camera",
+            "id": "34b05cf8-3cb6-4f7c-b28e-8eb239f5048c",
+            "actions": [
+                {
+                    "name": "LeftSeek",
+                    "type": "Button",
+                    "id": "6fbb130c-c943-427a-85fa-2d55193faa58",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RightSeel",
+                    "type": "Button",
+                    "id": "40a977f6-6239-4e64-8f49-821596f20e46",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e174fbc8-14f7-4e29-962d-750452a92766",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftSeek",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f88c2542-00ee-417d-ae51-bdf4468d0bc7",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightSeel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
