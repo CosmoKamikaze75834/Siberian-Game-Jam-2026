@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
 
     private Rigidbody2D _rigidbody2D;
 
-    private IMotionControl _motionControl;
+    private IPlayerControls _motionControl;
 
     private void Awake()
     {
@@ -25,7 +25,7 @@ public class Movement : MonoBehaviour
     }
 
     [Inject]
-    private void Construct(IMotionControl motionControl)
+    private void Construct(IPlayerControls motionControl)
     {
         _motionControl = motionControl;
     }
