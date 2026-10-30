@@ -13,11 +13,17 @@ public class CameraPlacement : MonoBehaviour
     public int MaxCameraCount => _maxCameraCount;
     public int RemainingCameraCount => _maxCameraCount - _placedCameraCount;
 
-
     public event Action<int> AmountChanged;//количество камер изменилось
+
+    private void OnEnable() =>
+        Debug.Log("Заглушка");
 
     public void Place()
     {
+        //компонент включён и его GameObject активен в иерархии?
+        if (isActiveAndEnabled == false)
+            return;
+
         if(_placedCameraCount >= _maxCameraCount)
             return;
 
