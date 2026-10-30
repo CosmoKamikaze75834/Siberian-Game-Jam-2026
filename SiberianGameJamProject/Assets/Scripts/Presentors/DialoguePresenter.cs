@@ -3,7 +3,8 @@ using Zenject;
 
 public class DialoguePresenter : MonoBehaviour
 {
-    [SerializeField] private BedInteraction _bedInteraction;
+    [SerializeField] private Interaction[] _interactions;
+
     [SerializeField] private DialogueView _dialogueView;
 
     private bool _isDialogueOpen;
@@ -17,24 +18,53 @@ public class DialoguePresenter : MonoBehaviour
 
     private void OnEnable()
     {
-        _bedInteraction.InteractionRequested += OnBedInteraction;
+        foreach (Interaction interaction in _interactions)
+        {
+            if (interaction != null)
+                interaction.InteractionRequested += OnInteraction;
+        }
     }
 
     private void OnDisable()
     {
-        _bedInteraction.InteractionRequested -= OnBedInteraction;
+        foreach (Interaction interaction in _interactions)
+        {
+            if (interaction != null)
+                interaction.InteractionRequested -= OnInteraction;
+        }
+
         _controls.InteractPressed -= CloseDialogue;
     }
 
-    private void OnBedInteraction()
+    private void OnInteraction(InteractionType interactionType)
     {
         if (_isDialogueOpen)
             return;
 
-        _dialogueView.Show("Сначала нужно установить все камеры.");
+        switch (interactionType)
+        {
+            case InteractionType.Bed:
+                ShowBed();
+                break;
+
+            case InteractionType.Laptop:
+                ShowLaptop();
+                break;
+        }
+
         _isDialogueOpen = true;
 
         _controls.InteractPressed += CloseDialogue;
+    }
+
+    public void ShowBed()
+    {
+        _dialogueView.Show("Сначала нужно установить все камеры.");
+    }
+
+    public void ShowLaptop()
+    {
+        _dialogueView.Show("У меня ещё нет плёнок для просмотра");
     }
 
     private void CloseDialogue()
