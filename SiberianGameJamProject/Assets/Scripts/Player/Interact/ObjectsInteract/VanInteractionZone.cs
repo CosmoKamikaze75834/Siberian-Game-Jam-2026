@@ -1,18 +1,7 @@
-using UnityEngine;
-using Zenject;
-
-public class VanInteractionZone : MonoBehaviour, IInteractable
+public class VanInteractionZone : Zone, IInteractable
 {
-    private SceneLoader _loader;
-
-    public void Interact()
+    public override void Interact()
     {
-        _loader.Load("VanInteriorScene");
-    }
-
-    [Inject]
-    private void Construct(SceneLoader sceneloader)
-    {
-        _loader = sceneloader;
+        Loader.Load("VanInteriorScene");
     }
 }
