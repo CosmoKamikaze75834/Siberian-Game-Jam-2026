@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -7,6 +8,8 @@ public class CameraPlacement : MonoBehaviour
 {
     [SerializeField] private TrailCamera _camera;
     [SerializeField, Min(1)] private int _maxCameraCount;
+
+    private readonly Dictionary<Vector3, TrailCamera> _spawnedCameras = new();
 
     public int MaxCameraCount => _maxCameraCount;
     public int RemainingCameraCount => _maxCameraCount - _progress.PlacedCameraCount;
@@ -20,7 +23,10 @@ public class CameraPlacement : MonoBehaviour
         _progress.Initialize(_maxCameraCount);
 
         foreach (Vector3 position in _progress.CameraPositions)
-            Instantiate(_camera, position, Quaternion.identity);
+        {
+            TrailCamera camera = Instantiate(_camera, position, Quaternion.identity);
+            _spawnedCameras.Add(position, camera);
+        }
     }
 
     public void Place(Vector3 position)
@@ -29,17 +35,35 @@ public class CameraPlacement : MonoBehaviour
         if (isActiveAndEnabled == false)
             return;
 
-        if(_progress.PlacedCameraCount >= _maxCameraCount)
+        if (_progress.PlacedCameraCount >= _maxCameraCount)
             return;
 
         if (_progress.HasCameraAt(position))
             return;
 
-        Instantiate(_camera, position, Quaternion.identity);
+        TrailCamera camera = Instantiate(_camera, position, Quaternion.identity);
+        _spawnedCameras.Add(position, camera);
 
         _progress.RegisterCameraPlaced(position);
 
         AmountChanged?.Invoke(RemainingCameraCount);
+    }
+
+    public bool TryCollect(Vector3 position)
+    {
+        if (!_spawnedCameras.TryGetValue(position, out TrailCamera camera))//ищем по указанной позиции
+            return false;
+
+        if (!_progress.TryCollectCameraAt(position))//поспал ли игрок и зарегестрирвоана ли камера?
+            return false;
+
+        Destroy(camera.gameObject);
+
+        _spawnedCameras.Remove(position);
+
+        AmountChanged?.Invoke(RemainingCameraCount);
+
+        return true;
     }
 
     [Inject]
