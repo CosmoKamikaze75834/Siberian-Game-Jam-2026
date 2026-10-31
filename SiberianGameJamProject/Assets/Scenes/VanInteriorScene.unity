@@ -1481,6 +1481,7 @@ MonoBehaviour:
   - {fileID: 1896489826}
   - {fileID: 1475864581}
   _dialogueView: {fileID: 768209012}
+  _dualogue: {fileID: 2136409646}
 --- !u!1 &1750199796
 GameObject:
   m_ObjectHideFlags: 0
@@ -2197,6 +2198,7 @@ GameObject:
   - component: {fileID: 2136409645}
   - component: {fileID: 2136409644}
   - component: {fileID: 2136409643}
+  - component: {fileID: 2136409646}
   m_Layer: 5
   m_Name: DialoguePanel
   m_TagString: Untagged
@@ -2274,6 +2276,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2136409641}
   m_CullTransparentMesh: 1
+--- !u!114 &2136409646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136409641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e8be1287e32a6b498199d94c9a1f741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _entries:
+  - Id: 0
+    Text: "\u042F \u043D\u0435 \u043C\u043E\u0433\u0443 \u043B\u0435\u0447\u044C
+      \u0441\u043F\u0430\u0442\u044C \u043F\u043E\u043A\u0430 \u043D\u0435 \u043F\u043E\u0441\u0442\u0430\u0432\u043B\u044E
+      \u0432\u0441\u0435 \u043A\u0430\u043C\u0435\u0440\u044B"
+  - Id: 1
+    Text: "\u041F\u043E\u043A\u0430 \u043D\u0435\u0447\u0435\u0433\u043E \u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C"
+  _dialogueView: {fileID: 768209012}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

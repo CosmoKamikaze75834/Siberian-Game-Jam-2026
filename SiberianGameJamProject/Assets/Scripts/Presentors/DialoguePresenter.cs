@@ -6,6 +6,7 @@ public class DialoguePresenter : MonoBehaviour
     [SerializeField] private Interaction[] _interactions;
 
     [SerializeField] private DialogueView _dialogueView;
+    [SerializeField] private Dialogue _dualogue;
 
     private bool _isDialogueOpen;
 
@@ -44,27 +45,17 @@ public class DialoguePresenter : MonoBehaviour
         switch (interactionType)
         {
             case InteractionType.Bed:
-                ShowBed();
+                _dualogue.Show(DialogueId.BedUnavailable);
                 break;
 
             case InteractionType.Laptop:
-                ShowLaptop();
+                _dualogue.Show(DialogueId.LaptopUnavailable);
                 break;
         }
 
         _isDialogueOpen = true;
 
         _controls.InteractPressed += CloseDialogue;
-    }
-
-    public void ShowBed()
-    {
-        _dialogueView.Show("Сначала нужно установить все камеры.");
-    }
-
-    public void ShowLaptop()
-    {
-        _dialogueView.Show("У меня ещё нет плёнок для просмотра");
     }
 
     private void CloseDialogue()

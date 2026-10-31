@@ -7,7 +7,7 @@ public class WindowLoading : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(_sceneLoader.LoadAsync("GameplayScene"));
+        StartCoroutine(_sceneLoader.LoadAsync("VanInteriorScene"));
     }
 
     [Inject]
