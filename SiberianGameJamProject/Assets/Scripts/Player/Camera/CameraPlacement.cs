@@ -6,7 +6,6 @@ using Zenject;
 public class CameraPlacement : MonoBehaviour
 {
     [SerializeField] private TrailCamera _camera;
-    [SerializeField] private Transform _pointCamera;
     [SerializeField, Min(1)] private int _maxCameraCount;
 
     public int MaxCameraCount => _maxCameraCount;
@@ -24,7 +23,7 @@ public class CameraPlacement : MonoBehaviour
             Instantiate(_camera, position, Quaternion.identity);
     }
 
-    public void Place()
+    public void Place(Vector3 position)
     {
         //компонент включён и его GameObject активен в иерархии?
         if (isActiveAndEnabled == false)
@@ -33,9 +32,10 @@ public class CameraPlacement : MonoBehaviour
         if(_progress.PlacedCameraCount >= _maxCameraCount)
             return;
 
-        Vector3 position = _pointCamera.position;
+        if (_progress.HasCameraAt(position))
+            return;
 
-        Instantiate(_camera, position, _pointCamera.rotation);
+        Instantiate(_camera, position, Quaternion.identity);
 
         _progress.RegisterCameraPlaced(position);
 

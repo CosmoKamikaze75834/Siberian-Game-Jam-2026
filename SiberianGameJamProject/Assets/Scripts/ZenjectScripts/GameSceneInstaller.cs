@@ -9,9 +9,9 @@ public class GameSceneInstaller : MonoInstaller
 
         Container.Bind<InputMove>().FromComponentInHierarchy().AsSingle();
         Container.Bind<InputInteract>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<InputPointer>().FromComponentInHierarchy().AsSingle();
         Container.Bind<SceneLoader>().FromComponentInHierarchy().AsSingle();
 
         Container.BindInterfacesTo<InputSystemPlayer>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<CameraPlacement>().FromComponentInHierarchy().AsSingle();
     }
 }

@@ -39,4 +39,10 @@ public class GameProgress
         if (AllCamerasPlaced)
             AllCamerasPlacedEvent?.Invoke();
     }
+
+    //есть ли установленная камера в указанной позиции
+    public bool HasCameraAt(Vector3 position)
+    {
+        return _cameraPositions.Contains(position);//ищет указанную позицию в списке
+    }
 }
