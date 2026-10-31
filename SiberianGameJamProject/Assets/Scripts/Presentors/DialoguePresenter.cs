@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -6,11 +7,15 @@ public class DialoguePresenter : MonoBehaviour
     [SerializeField] private Interaction[] _interactions;
 
     [SerializeField] private DialogueView _dialogueView;
-    [SerializeField] private Dialogue _dualogue;
+    [SerializeField] private Dialogue _dialogue;
 
     private bool _isDialogueOpen;
+    private bool _sleepAfterDialogue;
 
     private IPlayerControls _controls;
+    private GameProgress _progress;
+
+    public event Action SleepRequested;
 
     private void Awake()
     {
@@ -45,11 +50,23 @@ public class DialoguePresenter : MonoBehaviour
         switch (interactionType)
         {
             case InteractionType.Bed:
-                _dualogue.Show(DialogueId.BedUnavailable);
+                if (_progress.HasSlept)
+                {
+                    _dialogue.Show(DialogueId.AlreadySlept);
+                }
+                else if (_progress.AllCamerasPlaced)
+                {
+                    _sleepAfterDialogue = true;
+                    _dialogue.Show(DialogueId.BedAvailable);
+                }
+                else
+                {
+                    _dialogue.Show(DialogueId.BedUnavailable);
+                }
                 break;
 
             case InteractionType.Laptop:
-                _dualogue.Show(DialogueId.LaptopUnavailable);
+                _dialogue.Show(DialogueId.LaptopUnavailable);
                 break;
         }
 
@@ -64,11 +81,18 @@ public class DialoguePresenter : MonoBehaviour
         _isDialogueOpen = false;
 
         _controls.InteractPressed -= CloseDialogue;
+
+        if (_sleepAfterDialogue)
+        {
+            _sleepAfterDialogue = false;
+            SleepRequested?.Invoke();
+        }
     }
 
     [Inject]
-    private void Construct(IPlayerControls controls)
+    private void Construct(IPlayerControls controls, GameProgress gameProgress)
     {
         _controls = controls;
+        _progress = gameProgress;
     }
 }

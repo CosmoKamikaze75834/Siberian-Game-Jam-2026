@@ -11,9 +11,18 @@ public class GameProgress
     private readonly List<Vector3> _cameraPositions = new();
 
     public bool AllCamerasPlaced => MaxCameraCount > 0 && PlacedCameraCount >= MaxCameraCount;
+
     public IReadOnlyList<Vector3> CameraPositions => _cameraPositions;
 
     public event Action AllCamerasPlacedEvent;//все камеры установлены
+
+    //сон игрока
+    public bool HasSlept { get; private set; }//факт завершения сна
+
+    public void CompleteSleep()
+    {
+        HasSlept = true;
+    }
 
     public void Initialize(int maxCount)
     {

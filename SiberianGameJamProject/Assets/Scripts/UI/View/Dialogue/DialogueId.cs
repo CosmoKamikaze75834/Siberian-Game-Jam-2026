@@ -1,7 +1,9 @@
 public enum DialogueId
 {
     BedUnavailable,
+    BedAvailable,
     LaptopUnavailable,
     LaptopBeforeSleep,
-    AllCamerasPlaced
+    AllCamerasPlaced,
+    AlreadySlept
 }
