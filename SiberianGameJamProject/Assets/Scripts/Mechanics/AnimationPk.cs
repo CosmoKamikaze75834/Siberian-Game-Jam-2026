@@ -9,12 +9,15 @@ public class AnimationPk : MonoBehaviour
     [SerializeField] private Animator[] _animators;
     [SerializeField] private GameObject _loaderObj;
     [SerializeField] private GameObject _groupAnimationObj;
+    [SerializeField] private GameObject _groupAnimationObjFolder;
+    [SerializeField] private GameObject _buttonOff;
     private float _totalFrame;
     private float _currentFrame = 0f;
     float p = 0f;
     private float _frameDuration;
     public void Start()
     {
+        _groupAnimationObjFolder.SetActive(false);
         _groupAnimationObj.SetActive(false);
         _loaderObj.SetActive(false);
         InitializeAnimation();
@@ -59,8 +62,11 @@ public class AnimationPk : MonoBehaviour
             ApplyFrame();
             yield return new WaitForSeconds(0.05f);
         }
+        _buttonOff.SetActive(false);
         _loaderObj.SetActive(false);
         _groupAnimationObj.SetActive(true);
+        _groupAnimationObjFolder.SetActive(true);
+        
 
     }
 }
