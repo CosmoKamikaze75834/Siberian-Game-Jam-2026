@@ -7,7 +7,6 @@ public class WindowMainMenu : Window
 {
     [SerializeField] private Button _buttonNewGame;
     [SerializeField] private Button _buttonContinue;
-    [SerializeField] private Button _buttonSettings;
     [SerializeField] private Button _buttonExit;
 
     private SceneLoader _sceneLoader;
@@ -18,14 +17,12 @@ public class WindowMainMenu : Window
     {
         _buttonNewGame.onClick.AddListener(OnPlayClicked);
         _buttonExit.onClick.AddListener(OnExitClicked);
-        _buttonSettings.onClick.AddListener(OnSettingsClicked);
     }
 
     private void OnDisable()
     {
         _buttonNewGame.onClick.RemoveListener(OnPlayClicked);
         _buttonExit.onClick.RemoveListener(OnExitClicked);
-        _buttonSettings.onClick.RemoveListener(OnSettingsClicked);
     }
 
     private void OnPlayClicked()

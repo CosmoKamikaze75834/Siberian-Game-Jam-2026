@@ -3,7 +3,7 @@ public enum DialogueId
     BedUnavailable,
     BedAvailable,
     LaptopUnavailable,
-    LaptopBeforeSleep,
+    LaptopBeforeCamerasRemove,
     AllCamerasPlaced,
     AlreadySlept,
     camerasAssembled

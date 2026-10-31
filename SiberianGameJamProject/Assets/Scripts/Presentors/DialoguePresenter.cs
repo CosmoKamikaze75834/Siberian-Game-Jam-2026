@@ -66,7 +66,13 @@ public class DialoguePresenter : MonoBehaviour
                 break;
 
             case InteractionType.Laptop:
-                _dialogue.Show(DialogueId.LaptopUnavailable);
+                if (_progress.AllCamerasCollected)
+                {
+                    Debug.Log("Ноут доступен");
+                    return;
+                }
+                else
+                    _dialogue.Show(DialogueId.LaptopUnavailable);
                 break;
         }
 
