@@ -5,5 +5,6 @@ public enum DialogueId
     LaptopUnavailable,
     LaptopBeforeSleep,
     AllCamerasPlaced,
-    AlreadySlept
+    AlreadySlept,
+    camerasAssembled
 }

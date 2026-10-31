@@ -12,17 +12,27 @@ public class CameraPlacementDialoguePresenter : MonoBehaviour
     private void Start()
     {
         _gameProgress.AllCamerasPlacedEvent += OnAllCamerasPlaced;
+        _gameProgress.AllCamerasCollectedEvent += OnAllCamerasRemove;
     }
 
     private void OnDestroy()
     {
         if (_gameProgress != null)
+        {
             _gameProgress.AllCamerasPlacedEvent -= OnAllCamerasPlaced;
+            _gameProgress.AllCamerasCollectedEvent -= OnAllCamerasRemove;
+        }
     }
 
     private void OnAllCamerasPlaced()
     {
         _dualogue.Show(DialogueId.AllCamerasPlaced);
+        StartCoroutine(ShowTimeReplic());
+    }
+
+    private void OnAllCamerasRemove()
+    {
+        _dualogue.Show(DialogueId.camerasAssembled);
         StartCoroutine(ShowTimeReplic());
     }
 
