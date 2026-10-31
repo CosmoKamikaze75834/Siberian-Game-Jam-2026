@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,9 @@ public class SeekBar : MonoBehaviour
 {
     [SerializeField] private Animator[] _animators;
     [SerializeField] public SplineContainer _seekBarSpline;
-    private int _currentAnim=0;
+    [SerializeField] public GameObject _daysAnim;
+    [SerializeField] public GameObject[] _daysAnimClips;
+    private int _currentAnim;
     private float _currentFrame = 0f;
     float p = 0f;
     float videoSpacing = 1f / 4;
@@ -22,11 +25,48 @@ public class SeekBar : MonoBehaviour
 
     public void Start()
     {
- if (_animators.Length>0)
+        for (int i = 0; i < 3; i++)
         {
-            InitializeAnimation(_currentAnim);
+            if (_animators[i] != null && _animators[i].runtimeAnimatorController != null)
+            {
+                _animators[i].speed = 0; // Пауза по умолчанию для ВСЕХ аниматоров
+            }
         }
-       
+    }
+
+    public void WindowPwOpen()
+    {
+     
+        _daysAnim.SetActive(true);
+    }
+    public void OppanPlayer(int indexday)
+    {
+        if (_isPlaying)
+        {
+            _isPlaying = false;
+            if (_playCoroutine != null)
+            {
+                StopCoroutine(_playCoroutine);
+                _playCoroutine = null;
+            }
+        }
+
+        // Сбрасываем и скрываем все клипы и ставим их на паузу
+        for (int i = 0; i < 3; i++)
+        {
+            _daysAnimClips[i].SetActive(false);
+            if (_animators[i] != null) _animators[i].speed = 0;
+        }
+
+        p = 0;
+        _currentFrame = 0;
+        _daysAnimClips[indexday].SetActive(true);
+        _daysAnim.SetActive(false);
+
+        // <-- КРИТИЧЕСКИ ВАЖНО: Обновляем индекс текущего аниматора!
+        _currentAnim = indexday;
+
+        InitializeAnimation(indexday);
     }
     private void InitializeAnimation(int index)
     {
@@ -56,7 +96,7 @@ public class SeekBar : MonoBehaviour
     {
         if (ctntx.performed)
         {
-            _currentFrame -= _frameDuration;
+            _currentFrame -= _frameDuration*2;
             ApplyFrame();
             UpdateSeekPosition(0);
          
@@ -66,7 +106,7 @@ public class SeekBar : MonoBehaviour
     {
         if (ctntx.performed)
         {
-            _currentFrame += _frameDuration;
+            _currentFrame += _frameDuration*2;
             ApplyFrame();
             UpdateSeekPosition(2);
             
@@ -119,7 +159,7 @@ public class SeekBar : MonoBehaviour
             ApplyFrame();
             UpdateSeekPosition(2);
           
-            yield return new WaitForSeconds(0.1f); 
+            yield return new WaitForSeconds(0.05f); 
         }
         
     }
