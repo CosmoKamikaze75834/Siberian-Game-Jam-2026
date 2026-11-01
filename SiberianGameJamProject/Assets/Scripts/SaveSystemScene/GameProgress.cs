@@ -15,11 +15,17 @@ public class GameProgress
     public IReadOnlyList<Vector3> CameraPositions => _cameraPositions;//уникальный список типа вектор 3 содержит в себе позиции камер
 
     public bool HasSlept { get; private set; }
+    public bool HasSeenIntro { get; private set; }
 
     public bool AllCamerasCollected => HasSlept && PlacedCameraCount == 0;
 
     public event Action AllCamerasPlacedEvent;
     public event Action AllCamerasCollectedEvent;
+
+    public void CompleteIntro()
+    {
+        HasSeenIntro = true;
+    }
 
     public void CompleteSleep()
     {

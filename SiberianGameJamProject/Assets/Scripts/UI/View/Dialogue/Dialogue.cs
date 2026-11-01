@@ -1,30 +1,32 @@
 using UnityEngine;
+using UnityEngine.Localization.Settings;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class Dialogue : MonoBehaviour
 {
-    [System.Serializable]
-    private struct DialogueEntry
-    {
-        public DialogueId Id;
-
-        [TextArea(2, 5)]
-        public string Text;
-    }
-
-    [SerializeField] private DialogueEntry[] _entries;
     [SerializeField] private DialogueView _dialogueView;
 
     public void Show(DialogueId id)
     {
-        foreach (var entry in _entries)
+
+        Debug.Log($"Вызван диалог: {id}");
+        _dialogueView.Show("TEST");
+
+        var operation = LocalizationSettings.StringDatabase
+            .GetLocalizedStringAsync("Gameplay", id.ToString());
+
+        operation.Completed += result =>
         {
-            if (entry.Id != id)
-                continue;
+            if (!this || !isActiveAndEnabled)
+                return;
 
-            _dialogueView.Show(entry.Text);
-            return;
-        }
+            if (result.Status != AsyncOperationStatus.Succeeded)
+            {
+                Debug.LogWarning($"Не удалось загрузить диалог: {id}");
+                return;
+            }
 
-        Debug.LogWarning($"Реплика {id} не найдена");
+            _dialogueView.Show(result.Result);
+        };
     }
 }

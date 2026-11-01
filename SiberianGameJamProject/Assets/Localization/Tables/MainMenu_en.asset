@@ -34,6 +34,22 @@ MonoBehaviour:
     m_Localized: Back
     m_Metadata:
       m_Items: []
+  - m_Id: 1444283457867776
+    m_Localized: Master Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1444427096002560
+    m_Localized: Music Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1444444200374272
+    m_Localized: SFX Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1449749864910848
+    m_Localized: Next
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
