@@ -36,6 +36,22 @@ MonoBehaviour:
     m_Key: AlreadySlept
     m_Metadata:
       m_Items: []
+  - m_Id: 31376744517632
+    m_Key: AllCamerasPlaced
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31477357481984
+    m_Key: camerasAssembled
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34560061870080
+    m_Key: seven_hours_later
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35609594171392
+    m_Key: camera_count
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

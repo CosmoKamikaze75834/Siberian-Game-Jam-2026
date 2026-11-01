@@ -27,6 +27,11 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c33caeabaa0e17b47a8c05a21e22314f
+    m_Address: Assets/Localization/Tables/PCScene Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: f9f30144de8bacf4e955fd306f603675, type: 2}
   m_SchemaSet:
