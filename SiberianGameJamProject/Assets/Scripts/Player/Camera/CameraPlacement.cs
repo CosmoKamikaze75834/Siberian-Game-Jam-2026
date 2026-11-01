@@ -7,16 +7,22 @@ using Zenject;
 public class CameraPlacement : MonoBehaviour
 {
     [SerializeField] private TrailCamera _camera;
-    [SerializeField, Min(1)] private int _maxCameraCount;
+    [SerializeField, Min(1)] private int _maxCameraCount = 3;
+
+    private GameProgress _progress;
 
     private readonly Dictionary<Vector3, TrailCamera> _spawnedCameras = new();
 
     public int MaxCameraCount => _maxCameraCount;
     public int RemainingCameraCount => _maxCameraCount - _progress.PlacedCameraCount;
 
-    private GameProgress _progress;
+    public event Action<int> AmountChanged;
 
-    public event Action<int> AmountChanged;//количество камер изменилось
+    [Inject]
+    private void Construct(GameProgress progress)
+    {
+        _progress = progress;
+    }
 
     private void Start()
     {
@@ -24,37 +30,45 @@ public class CameraPlacement : MonoBehaviour
 
         foreach (Vector3 position in _progress.CameraPositions)
         {
-            TrailCamera camera = Instantiate(_camera, position, Quaternion.identity);
-            _spawnedCameras.Add(position, camera);
+            SpawnCamera(position);
         }
-    }
-
-    public void Place(Vector3 position)
-    {
-        //компонент включён и его GameObject активен в иерархии?
-        if (isActiveAndEnabled == false)
-            return;
-
-        if (_progress.PlacedCameraCount >= _maxCameraCount)
-            return;
-
-        if (_progress.HasCameraAt(position))
-            return;
-
-        TrailCamera camera = Instantiate(_camera, position, Quaternion.identity);
-        _spawnedCameras.Add(position, camera);
-
-        _progress.RegisterCameraPlaced(position);
 
         AmountChanged?.Invoke(RemainingCameraCount);
     }
 
+    public void Place(Vector3 position)
+    {
+        if (!isActiveAndEnabled)
+            return;
+
+        if (_progress.HasCameraAt(position))
+        {
+            Debug.Log("Камера уже установлена в этой точке");
+            return;
+        }
+
+        if (_progress.PlacedCameraCount >= _maxCameraCount)
+        {
+            Debug.Log("Все камеры уже установлены");
+            return;
+        }
+
+        if (!SpawnCamera(position))
+            return;
+
+        _progress.RegisterCameraPlaced(position);
+
+        AmountChanged?.Invoke(RemainingCameraCount);
+
+        Debug.Log($"Камера успешно установлена: {position}");
+    }
+
     public bool TryCollect(Vector3 position)
     {
-        if (!_spawnedCameras.TryGetValue(position, out TrailCamera camera))//ищем по указанной позиции
+        if (!_spawnedCameras.TryGetValue(position, out TrailCamera camera))
             return false;
 
-        if (!_progress.TryCollectCameraAt(position))//поспал ли игрок и зарегестрирвоана ли камера?
+        if (!_progress.TryCollectCameraAt(position))
             return false;
 
         Destroy(camera.gameObject);
@@ -66,9 +80,42 @@ public class CameraPlacement : MonoBehaviour
         return true;
     }
 
-    [Inject]
-    private void Construct(GameProgress progress)
+    private bool SpawnCamera(Vector3 position)
     {
-        _progress = progress;
+        if (_camera == null)
+        {
+            Debug.LogError("Префаб TrailCamera не назначен!");
+            return false;
+        }
+
+        TrailCamera camera = Instantiate(
+            _camera,
+            position,
+            Quaternion.identity
+        );
+
+        SpriteRenderer[] renderers =
+            camera.GetComponentsInChildren<SpriteRenderer>(true);
+
+        if (renderers.Length == 0)
+        {
+            Debug.LogError("У TrailCamera нет SpriteRenderer!");
+        }
+
+        foreach (SpriteRenderer spriteRenderer in renderers)
+        {
+            spriteRenderer.gameObject.SetActive(true);
+            spriteRenderer.enabled = true;
+            spriteRenderer.color = Color.white;
+
+            if (spriteRenderer.sprite == null)
+            {
+                Debug.LogError("У камеры не назначен Sprite!");
+            }
+        }
+
+        _spawnedCameras.Add(position, camera);
+
+        return true;
     }
 }
