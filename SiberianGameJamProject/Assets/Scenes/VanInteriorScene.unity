@@ -3287,6 +3287,7 @@ GameObject:
   - component: {fileID: 1624662373}
   - component: {fileID: 1624662374}
   - component: {fileID: 1624662375}
+  - component: {fileID: 1624662376}
   m_Layer: 0
   m_Name: ExitZone
   m_TagString: Untagged
@@ -3367,6 +3368,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4091f4eff002cfb4ca6bd7f57ff0ec64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1624662376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624662372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bd76d3fffc2d7d45bd24bca902becc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _doorClip: {fileID: 8300000, guid: 41ca09b82bd6ba044820cf43593986c1, type: 3}
+  _sfxGroup: {fileID: -6433690201768786002, guid: ff87b8b378f00e0449e1c94d39bd6d0c, type: 2}
 --- !u!1 &1637322883
 GameObject:
   m_ObjectHideFlags: 0
