@@ -6,6 +6,10 @@ using Zenject;
 //устанавилвает камеру в мире
 public class CameraPlacement : MonoBehaviour
 {
+    [SerializeField] private AudioSource _placementAudioSource;
+    [SerializeField] private AudioClip _placementSound;
+    [SerializeField] private AudioClip _collectionSound;
+
     [SerializeField] private TrailCamera _camera;
     [SerializeField, Min(1)] private int _maxCameraCount = 3;
 
@@ -58,6 +62,11 @@ public class CameraPlacement : MonoBehaviour
 
         _progress.RegisterCameraPlaced(position);
 
+        if (_placementAudioSource != null && _placementSound != null)
+        {
+            _placementAudioSource.PlayOneShot(_placementSound);
+        }
+
         AmountChanged?.Invoke(RemainingCameraCount);
 
         Debug.Log($"Камера успешно установлена: {position}");
@@ -71,8 +80,12 @@ public class CameraPlacement : MonoBehaviour
         if (!_progress.TryCollectCameraAt(position))
             return false;
 
-        Destroy(camera.gameObject);
+        if (_placementAudioSource != null && _collectionSound != null)
+        {
+            _placementAudioSource.PlayOneShot(_collectionSound);
+        }
 
+        Destroy(camera.gameObject);
         _spawnedCameras.Remove(position);
 
         AmountChanged?.Invoke(RemainingCameraCount);
