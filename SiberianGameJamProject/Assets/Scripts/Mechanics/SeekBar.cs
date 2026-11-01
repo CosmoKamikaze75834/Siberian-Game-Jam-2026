@@ -83,6 +83,7 @@ public class SeekBar : MonoBehaviour
         }
         else
         {
+
             _dialogeWin.SetActive(false);
         }
 
