@@ -28,6 +28,9 @@ public class ButtonExit : MonoBehaviour
         else
         {
             _dialogeWin.SetActive(false);
+            currentDialogueIndex = 0;
+            _dialogyMeneger.ClainerDialogy();
+        
         }
 
     }
@@ -51,6 +54,9 @@ public class ButtonExit : MonoBehaviour
         else
         {
             _dialogeWin.SetActive(false);
+            currentDialogueIndex = 0;
+            _dialogyMeneger.ClainerDialogy();
+           
         }
 
     }
