@@ -19,10 +19,6 @@ MonoBehaviour:
     m_Key: new_game
     m_Metadata:
       m_Items: []
-  - m_Id: 295592923136
-    m_Key: continue
-    m_Metadata:
-      m_Items: []
   - m_Id: 333484265472
     m_Key: settings
     m_Metadata:
