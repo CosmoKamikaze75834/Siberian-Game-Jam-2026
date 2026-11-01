@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 327772490368235237}
-  - component: {fileID: 5003044841446926637}
   m_Layer: 0
   m_Name: CameraPoint
   m_TagString: Untagged
@@ -32,19 +31,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2572638560450513865}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5003044841446926637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 127839032027486358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfcd48269b3b3fd418692af53d39dae8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cameraDistance: 1
 --- !u!1 &4708635608630527117
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f20e0ad198c6451489c82f66bd348bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cameraPlacement: {fileID: 2057016926958355969}
   _interactionDetector: {fileID: 3918500155762572749}
 --- !u!114 &2057016926958355969
 MonoBehaviour:
@@ -187,7 +172,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 3270626639404851754, guid: 37af2f4fa8092444eaaffffe7c8756fa, type: 3}
-  _pointCamera: {fileID: 327772490368235237}
   _maxCameraCount: 5
 --- !u!114 &2508931802329503450
 MonoBehaviour:

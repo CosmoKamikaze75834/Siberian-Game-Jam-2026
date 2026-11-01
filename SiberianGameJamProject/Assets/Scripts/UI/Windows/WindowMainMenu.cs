@@ -6,7 +6,7 @@ using Zenject;
 public class WindowMainMenu : Window
 {
     [SerializeField] private Button _buttonNewGame;
-    [SerializeField] private Button _buttonContinue;
+    [SerializeField] private Button _buttonSettings;
     [SerializeField] private Button _buttonExit;
 
     private SceneLoader _sceneLoader;
@@ -16,12 +16,14 @@ public class WindowMainMenu : Window
     private void OnEnable()
     {
         _buttonNewGame.onClick.AddListener(OnPlayClicked);
+        _buttonSettings.onClick.AddListener(OnSettingsClicked);
         _buttonExit.onClick.AddListener(OnExitClicked);
     }
 
     private void OnDisable()
     {
         _buttonNewGame.onClick.RemoveListener(OnPlayClicked);
+        _buttonSettings.onClick.RemoveListener(OnSettingsClicked);
         _buttonExit.onClick.RemoveListener(OnExitClicked);
     }
 
@@ -30,15 +32,16 @@ public class WindowMainMenu : Window
         _sceneLoader.Load("LoadingScene");
     }
 
-    private void OnExitClicked()
-    {
-        Application.Quit();
-        Debug.Log("Вы вышли из игры");
-    }
-
     private void OnSettingsClicked()
     {
+        Close();
         SettingsRequested?.Invoke();
+    }
+
+    private void OnExitClicked()
+    {
+        Debug.Log("Exit");
+        Application.Quit();
     }
 
     [Inject]
