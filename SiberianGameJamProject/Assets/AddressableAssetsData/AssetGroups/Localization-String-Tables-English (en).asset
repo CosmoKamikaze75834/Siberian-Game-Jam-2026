@@ -23,6 +23,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b0a45d79b5b2c7478ba1a2784c3020a
+    m_Address: PCScene_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cb85498bd8cc431409a5ce5a42282c88
     m_Address: MainMenu_en
     m_ReadOnly: 1

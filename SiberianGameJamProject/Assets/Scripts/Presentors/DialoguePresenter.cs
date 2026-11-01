@@ -47,6 +47,9 @@ public class DialoguePresenter : MonoBehaviour
         if (_isDialogueOpen)
             return;
 
+        if (_progress.AllCamerasCollected)
+            return;
+
         switch (interactionType)
         {
             case InteractionType.Bed:

@@ -9,6 +9,7 @@ public class Interaction : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        Debug.Log($"Взаимодействие с {gameObject.name}, тип: {_interactionType}");
         InteractionRequested?.Invoke(_interactionType);
     }
 }

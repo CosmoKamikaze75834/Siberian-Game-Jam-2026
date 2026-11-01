@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: en
   m_SharedData: {fileID: 11400000, guid: 3cb7a3b6e4c99824e8cd5304694bc77b, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 4361436102739623963
   m_TableData:
   - m_Id: 7796559872
     m_Localized: 'WASD - Movement
@@ -40,6 +41,29 @@ MonoBehaviour:
     m_Localized: Time to collect the cameras.
     m_Metadata:
       m_Items: []
+  - m_Id: 31376744517632
+    m_Localized: All cameras are placed. Time to return to the van.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31477357481984
+    m_Localized: All cameras collected. Time to check the footage.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34560061870080
+    m_Localized: 7 hours later...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35609594171392
+    m_Localized: 'Cameras: {0}/{1}'
+    m_Metadata:
+      m_Items:
+      - rid: 4361436102739623963
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 4361436102739623963
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 
+        m_SharedEntries:
+        - id: 35609594171392
