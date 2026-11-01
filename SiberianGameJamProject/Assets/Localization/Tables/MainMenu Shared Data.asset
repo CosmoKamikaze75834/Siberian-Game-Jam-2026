@@ -24,11 +24,27 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 370800988160
-    m_Key: exit
+    m_Key: Exit
     m_Metadata:
       m_Items: []
   - m_Id: 407811526656
     m_Key: back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1444283457867776
+    m_Key: master_volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1444427096002560
+    m_Key: music_volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1444444200374272
+    m_Key: sfx_volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1449749864910848
+    m_Key: Next
     m_Metadata:
       m_Items: []
   m_Metadata:

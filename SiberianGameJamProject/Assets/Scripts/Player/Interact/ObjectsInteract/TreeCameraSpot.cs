@@ -12,9 +12,12 @@ public class TreeCameraSpot : MonoBehaviour, IInteractable
     {
         Vector3 position = _mountPoint.position;
 
+        Debug.Log($"HasSlept: {_progress.HasSlept}");
+        Debug.Log($"CameraPlacement enabled: {_placement.isActiveAndEnabled}");
+
         if (_progress.HasSlept)
         {
-            _placement.TryCollect(position);
+            Debug.Log($"—бор камеры: {_placement.TryCollect(position)}");
             return;
         }
 

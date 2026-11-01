@@ -85,6 +85,8 @@ public class WindowSettings : Window
 
     private void OnLanguageChanged(int index)
     {
+        Debug.Log($"Выбран индекс языка: {index}");
+
         string languageCode = index == 0 ? "ru" : "en";
 
         Locale locale = LocalizationSettings.AvailableLocales.GetLocale(
