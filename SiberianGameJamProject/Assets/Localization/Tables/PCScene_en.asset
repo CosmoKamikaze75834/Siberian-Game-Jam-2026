@@ -17,7 +17,56 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: c33caeabaa0e17b47a8c05a21e22314f, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 6873812992
+    m_Localized: I haven't watched all the footage yet, so it's too early to turn
+      off the computer!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12617120092160
+    m_Localized: Unloading
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14574123618304
+    m_Localized: Well, it's just an ordinary fox. I've seen plenty of them before.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18004414173184
+    m_Localized: She's just scared of something.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18041508597760
+    m_Localized: Apparently, there was a bigger predator nearby.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18728850165760
+    m_Localized: There's no point in exporting the video again.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19184309637120
+    m_Localized: What kind of creature is that?!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19194434686976
+    m_Localized: It looks like a wolf, but it's huge... about the size of a bear.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19196221460480
+    m_Localized: That's it, I'm getting out of here.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19765052968960
+    m_Localized: Hmm... Looks like the moose is heading to the watering hole.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19809663586304
+    m_Localized: Some people confuse moose with deer.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19840005181440
+    m_Localized: What could have scared it?
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

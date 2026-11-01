@@ -16,7 +16,51 @@ MonoBehaviour:
   m_TableCollectionNameGuidString: c33caeabaa0e17b47a8c05a21e22314f
   m_Entries:
   - m_Id: 6873812992
-    m_Key: New Entry
+    m_Key: pk_exit_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12617120092160
+    m_Key: Unloading
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14574123618304
+    m_Key: pk_fox_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18004414173184
+    m_Key: pk_fox_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18041508597760
+    m_Key: pk_fox_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18728850165760
+    m_Key: pk_video_already_loaded
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19184309637120
+    m_Key: pk_unknown_creature
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19194434686976
+    m_Key: pk_giant_wolf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19196221460480
+    m_Key: pk_leave_area
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19765052968960
+    m_Key: pk_moose_water
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19809663586304
+    m_Key: pk_moose_vs_deer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19840005181440
+    m_Key: pk_moose_scared
     m_Metadata:
       m_Items: []
   m_Metadata:
